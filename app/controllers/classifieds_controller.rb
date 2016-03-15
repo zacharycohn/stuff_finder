@@ -3,7 +3,8 @@ class ClassifiedsController < ApplicationController
 	end
 
 	def index
+		@classifieds = Classified.all
 	end
 
-	
+
 end
