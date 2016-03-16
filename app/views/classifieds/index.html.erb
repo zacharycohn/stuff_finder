@@ -1,12 +1,23 @@
 <h1>Classifieds</h1>
 
-<section>
+<section class='col-md-8'>
 	<% @classifieds.each do |c| %>
-		<article>
+		<article class='well well-lg'>
 			<h2><%= c.title %></h2>
 			<p><%= c.description %></p>
 			<div><%= "$#{c.price}" %></div>
 			<div><%= c.category.name %> </div>
 		</article>
 	<% end %>
+</section>
+
+<section class="col-md-4">
+	<article class="panel panel-primary">
+		<div class="panel panel-heading">Categories</div>
+		<ul class="panel panel-body categories">
+			<% @categories.each do |category| %>
+				<li><h3><%= category.name %></h3></li>
+			<% end %>
+		</ul>
+	</article>
 </section>
