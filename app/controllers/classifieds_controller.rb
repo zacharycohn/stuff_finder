@@ -24,7 +24,7 @@ class ClassifiedsController < ApplicationController
 private
 
 	def safe_classified_params
-		params.require(:classified).permit(:title, :price, :description)
+		params.require(:classified).permit(:title, :price, :description, :image)
 	end
 
 	def safe_category_params
