@@ -4,7 +4,11 @@
 	<% @classifieds.each do |c| %>
 		<article class='well well-lg'>
 			<h2><%= c.title %></h2>
+			<p> <%= c.user.email %>
 			<p><%= c.description %></p>
+			<% if c.user == current_user %>
+				<p><%= link_to 'Delete this classified', c, method: 'delete' %></p>
+			<% end %>
 			<div><%= "$#{c.price}" %></div>
 			<div><%= c.category.name %> </div>
 			<img src='<%= c.image.url %>'>
@@ -12,13 +16,15 @@
 	<% end %>
 </section>
 
-<section class="col-md-4">
-	<article class="panel panel-primary">
-		<div class="panel panel-heading">Categories</div>
-		<ul class="panel panel-body categories">
-			<% @categories.each do |category| %>
-				<li><h3><%= category.name %></h3></li>
-			<% end %>
-		</ul>
-	</article>
-</section>
+<% if defined? @categories %>
+	<section class="col-md-4">
+		<article class="panel panel-primary">
+			<div class="panel panel-heading">Categories</div>
+			<ul class="panel panel-body categories">
+				<% @categories.each do |category| %>
+					<li><h3><%= category.name %></h3></li>
+				<% end %>
+			</ul>
+		</article>
+	</section>
+<% end %>

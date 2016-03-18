@@ -1,5 +1,6 @@
 class Classified < ActiveRecord::Base
   belongs_to :category
+  belongs_to :user
 
   has_attached_file :image, styles: {
   	medium: '300x300',
